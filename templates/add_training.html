@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Training Session</title>
+        <!-- import Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom style -->
+        <style>
+            /* Background and font style */
+            body {
+                background-color: #fffcf2;
+                font-family: 'Arial', sans-serif;
+            }
+
+            /* Card style */
+            .card {
+                border: none;
+                background-color: #EFDABA;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 12px;
+            }
+
+            /* Title style */
+            h1 {
+                color: #582f0e;
+            }
+
+            /* Button style */
+            .btn-custom {
+                background-color: #a44a3f;
+                color: white;
+                border-radius: 20px;
+                padding: 10px 20px;
+                transition: all 0.3s ease;
+            }
+
+            .btn-custom:hover {
+                background-color: #ad2831;
+                color: #FFF4DC;
+            }
+
+            /* Return button */
+            .btn-secondary {
+                background-color: #2f6690;
+                color: white;
+                border-radius: 20px;
+                padding: 10px 20px;
+                transition: all 0.3s ease;
+            }
+
+            .btn-secondary:hover {
+                background-color: #16425b;
+            }
+
+            .form-label {
+                color: #333d29;
+                font-weight: bold;
+            }
+
+            .form-control,
+            .form-select {
+                border-radius: 10px;
+            }
+
+            .form-card {
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container mt-5">
+            <div class="card form-card p-4">
+                <h1 class="text-center">Add Training Session</h1>
+                <form method="POST" action="/add_training/{{ member_id }}">
+                    <div class="mb-3">
+                        <label for="training_date" class="form-label">Training Date:</label>
+                        <input type="date" id="training_date" name="training_date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="training_type" class="form-label">Training Type:</label>
+                        <select id="training_type" name="training_type" class="form-select" required>
+                            <option value="Squats">Squats</option>
+                            <option value="Deadlifts">Deadlifts</option>
+                            <option value="Bench Press">Bench Press</option>
+                            <option value="Overhead Press">Overhead Press</option>
+                            <option value="Bent-Over Rows">Bent-Over Rows</option>
+                            <option value="Pull-Ups">Pull-Ups</option>
+                            <option value="Lunges">Lunges</option>
+                            <option value="Romanian Deadlifts">Romanian Deadlifts</option>
+                            <option value="Lateral Raises">Lateral Raises</option>
+                            <option value="Triceps Extensions">Triceps Extensions</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="training_part" class="form-label">Training Part:</label>
+                        <select id="training_part" name="training_part" class="form-select" required>
+                            <option value="Shoulders">Shoulders</option>
+                            <option value="Chest">Chest</option>
+                            <option value="Arms">Arms</option>
+                            <option value="Back">Back</option>
+                            <option value="Abs">Abs</option>
+                            <option value="Glutes">Glutes</option>
+                            <option value="Thighs">Thighs</option>
+                            <option value="Calves">Calves</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="training_load" class="form-label">Training Load (kg):</label>
+                        <input type="text" id="training_load" name="training_load" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="training_repetitions" class="form-label">Training Repetitions:</label>
+                        <select id="training_repetitions" name="training_repetitions" class="form-select" required>
+                            <option value="1-5 times">1-5 times</option>
+                            <option value="6-8 times">6-8 times</option>
+                            <option value="9-12 times">9-12 times</option>
+                            <option value="13 times or more">13 times or more</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="training_sets" class="form-label">Training Sets:</label>
+                        <input type="text" id="training_sets" name="training_sets" class="form-control" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-custom me-2">Add Training</button>
+                        <a href="/member/{{ member_id }}" class="btn btn-secondary">Back to Member</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
